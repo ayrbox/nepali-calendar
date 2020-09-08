@@ -1,0 +1,15 @@
+version: "3.5"
+
+services:
+  postgres:
+    image: postgres:latest
+    volumes:
+      - nepali-calendar-db:/var/lib/postgresql/data
+    ports:
+      - "5466:5432"
+    environment:
+      - POSTGRES_DB=calendar
+      - POSTGRES_USER=caluser
+      - POSTGRES_PASSWORD=calendarpassword
+volumes:
+  nepali-calendar-db:
