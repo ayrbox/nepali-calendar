@@ -8,8 +8,24 @@ services:
     ports:
       - "5466:5432"
     environment:
-      - POSTGRES_DB=calendar
-      - POSTGRES_USER=caluser
-      - POSTGRES_PASSWORD=calendarpassword
+      POSTGRES_DB: ${POSTGRES_DB}
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+  calendar: 
+    build: 
+      context: .
+      dockerfile: ./docker/Dockerfile.dev
+    ports: 
+      - "8080:80"
+    volumes:
+      - /calendar/node_modules
+      - ./src:/calendar/src
+    environment:
+      POSTGRES_HOST: ${POSTGRES_HOST}
+      POSTGRES_DB: ${POSTGRES_DB}
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+    depends_on:
+      - postgres
 volumes:
   nepali-calendar-db:
