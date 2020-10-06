@@ -5,9 +5,19 @@
   "author": "ayrbox",
   "license": "MIT",
   "dependencies": {
+    "config": "^3.3.2",
     "express": "^4.17.1",
     "pg": "^8.3.3",
     "pg-hstore": "^2.3.3",
-    "sequelize": "^6.3.5"
+    "sequelize": "^6.3.5",
+    "sequelize-cli": "^6.2.0"
+  },
+  "scripts": {
+    "dev": "nodemon ./src/index.js",
+    "db:migrate": "sequelize db:migrate"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.4",
+    "prettier": "^2.1.2"
   }
 }

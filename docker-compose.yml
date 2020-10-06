@@ -16,10 +16,11 @@ services:
       context: .
       dockerfile: ./docker/Dockerfile.dev
     ports: 
-      - "8080:80"
+      - "8888:80"
     volumes:
       - /calendar/node_modules
-      - ./src:/calendar/src
+      - ./src/:/calendar/src/
+      - ./config/:/calendar/config/
     environment:
       POSTGRES_HOST: ${POSTGRES_HOST}
       POSTGRES_DB: ${POSTGRES_DB}
